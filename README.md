@@ -28,7 +28,7 @@ How to Install
 
 ### Step one
 
-Download the files for the full screen plug-in from here
+Download the files for the full screen plug-in from [here][1]
 
 ### Step two
 
@@ -92,7 +92,7 @@ Plug-in options
 
 The demo for the plug-in has been set up in a way that you can simply punch in your options and generate the code you need to include in your head.
 
-To view the demo simply click here
+To view the demo simply click [here][1]
 
 If you wish to set the extra options without using the demo, the following documentation will take you through what is available.
 
@@ -105,7 +105,7 @@ If set to false this will display auto positioning of the image, therefore the i
 If set to false this will disable the overlay for when the browser window is bigger than the original size of the image.
 
 	offset: 		"X,Y" (default: "0,0")
-This should be set in an x, y value. It determines the difference of the offset for the full screen image. To full understand this it is good to view the live demo and play around with the value. View the demo here.
+This should be set in an x, y value. It determines the difference of the offset for the full screen image. To full understand this it is good to view the [live demo][1] and play around with the value. View the demo here.
 
 ### Examples of how to apply the options
 
@@ -129,3 +129,5 @@ In the following example all of the options will be set:
 		overlayLine: false,
 		offset : "150, 180"
 	});
+
+[1]: http://linux.propelleremail.co.uk/builds/full-screen-image
