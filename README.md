@@ -86,3 +86,46 @@ All that is left for us to do is initialise the full screen plug-in, to do this 
 	</script>
 
 Your plug-in should be now fully setup and working correctly.
+
+Plug-in options
+---------------
+
+The demo for the plug-in has been set up in a way that you can simply punch in your options and generate the code you need to include in your head.
+
+To view the demo simply click here
+
+If you wish to set the extra options without using the demo, the following documentation will take you through what is available.
+
+### Options available for the Full Screen plug-in
+
+repositionImage:	Boolean (default:true)
+If set to false this will display auto positioning of the image, therefore the image will be fixed to the top right of the browser window.
+
+overlayLine: 	Boolean (default:true)
+If set to false this will disable the overlay for when the browser window is bigger than the original size of the image.
+
+offset: 		"X,Y" (default: "0,0")
+This should be set in an x, y value. It determines the difference of the offset for the full screen image. To full understand this it is good to view the live demo and play around with the value. View the demo here.
+
+### Examples of how to apply the options
+
+To set the plug-in so that auto repositioning is disabled simply do the following:
+
+	$('#full-screen-image').fullSizeImage({
+		repositionImage: false
+	});
+
+If you want to set more than one option at a time you must do the following but bear in mind that the order of the options must be as shown above:
+
+	$('#full-screen-image').fullSizeImage({
+		repositionImage: false,
+		overlayLine: false
+	});
+
+In the following example all of the options will be set:
+
+	$('#full-screen-image').fullSizeImage({
+		repositionImage: false,
+		overlayLine: false,
+		offset : "150, 180"
+	});
