@@ -130,4 +130,4 @@ In the following example all of the options will be set:
 		offset : "150, 180"
 	});
 
-[1]: http://linux.propelleremail.co.uk/builds/full-screen-image
+[1]: http://blog.propcom.co.uk/demos/full-screen-image
