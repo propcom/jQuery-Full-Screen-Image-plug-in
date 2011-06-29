@@ -98,13 +98,13 @@ If you wish to set the extra options without using the demo, the following docum
 
 ### Options available for the Full Screen plug-in
 
-repositionImage:	Boolean (default:true)
+	repositionImage:	Boolean (default:true)
 If set to false this will display auto positioning of the image, therefore the image will be fixed to the top right of the browser window.
 
-overlayLine: 	Boolean (default:true)
+	overlayLine: 	Boolean (default:true)
 If set to false this will disable the overlay for when the browser window is bigger than the original size of the image.
 
-offset: 		"X,Y" (default: "0,0")
+	offset: 		"X,Y" (default: "0,0")
 This should be set in an x, y value. It determines the difference of the offset for the full screen image. To full understand this it is good to view the live demo and play around with the value. View the demo here.
 
 ### Examples of how to apply the options
