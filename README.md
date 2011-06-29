@@ -22,3 +22,67 @@ Browser support
 * Internet Explorer 6-9 (Due to IE6 not supporting position: fixed a fix for IE6 where by the full screen image is absolutely position and then follows the scroll top of the page)
 * Safari 3 and above
 * Opera 9 and above
+
+How to Install
+--------------
+
+### Step one
+
+Download the files for the full screen plug-in from here
+
+### Step two
+
+In the head of your document add the style sheet for the plug-in.
+
+	<link rel="stylesheet" type="text/css" href="css/full-screen-image.css" />
+
+Or simply add the following to your style sheet.
+
+	#full-screen-image {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+		z-index:0;
+	}
+		#full-screen-image img {
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:2;
+		}
+
+		#full-screen-image #overlay {
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background:url('../images/overlay.png') repeat;
+			z-index:5;
+		}
+
+Notice the id being used for the full screen div is #full-screen-image. It is worth mentally noting this one.
+
+### Step three
+
+For the next step it is entirely dependent on how you work, JavaScript should be included at the bottom of your page before the </body> tag to help with page load speeds. However, many people still work with all of their JavaScript in the head, so do what works best for you.
+
+	<script type="text/javascript" src=" //ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> 
+	<script type="text/javascript" src="js/full-screen-image.js"></script>
+
+These two lines set up both jQuery and the plug-in.
+
+### Step four
+
+All that is left for us to do is initialise the full screen plug-in, to do this simply type the following below your JavaScript includes.
+
+	<script type="text/javascript">
+		jQuery(function($){
+			$('#full-screen-image').fullSizeImage()
+		});
+	</script>
+
+Your plug-in should be now fully setup and working correctly.
