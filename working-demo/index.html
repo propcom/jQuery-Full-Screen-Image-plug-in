@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Full Size Image</title>
+
+<link rel="stylesheet" type="text/css" href="css/full-screen-image.css" /> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/modernizr-1.7.min.js"></script>
+<script type="text/javascript" src="js/full-screen-image.js"></script>
+<script type="text/javascript">
+	jQuery(function($){
+		$('#full-screen-image').fullSizeImage({
+			repositionImage : true,
+			overlayLine:true,
+			offset : null,
+			position : 'fixed'
+		});
+
+		$('#auto-reposition').change(function() {
+			$('#full-screen-image').fullSizeImage('refresh',{
+				repositionImage : $('#auto-reposition').val() == 'true',
+				overlayLine:$('#anti-aliasing').val() == 'true',
+				offset : $('#offsetX').val() + ',' + $('#offsetY').val(),
+				position : 'fixed'
+			});
+		});
+		$('#anti-aliasing').change(function() {
+			$('#full-screen-image').fullSizeImage('refresh',{
+				repositionImage : $('#auto-reposition').val() == 'true',
+				overlayLine:$('#anti-aliasing').val() == 'true',
+				offset : $('#offsetX').val() + ',' + $('#offsetY').val(),
+				position : 'fixed'
+			});
+		});
+		$('#offsetX, #offsetY').keyup(function() {
+			$('#full-screen-image').fullSizeImage('refresh',{
+				repositionImage : $('#auto-reposition').val() == 'true',
+				overlayLine:$('#anti-aliasing').val() == 'true',
+				offset : $('#offsetX').val() + ',' + $('#offsetY').val(),
+				position : 'fixed'
+			});
+		});
+
+		$('.show-more').click(function(){
+			if ($('#more-text:not(":visible")').size() > 0) {
+				$('#more-text').slideDown();
+				$('.show-more').attr('value','Hide Text?')
+			} else {
+				$('#more-text').slideUp();
+				$('.show-more').attr('value','Show More Text?')
+			};
+		})
+		$.getJSON("http://jsonip.appspot.com?callback=?", function(data){
+			if(data.ip == '87.84.128.98'){
+				$('.show-more').parent().append(' <input type="button" id="get-script" value="Get Head Script?" />');
+				$('#get-script').click(function(){
+					$('textarea').remove();
+
+					var text = '$("#full-screen-image").fullSizeImage({ ' + '\n' +
+								'     overlayLine: ' + $('#auto-reposition').val() + ',' + '\n' +
+								'     repositionImage : ' + $('#anti-aliasing').val() + ',' + '\n' +
+								'     offset : "' + $('#offsetX').val() + ',' + $('#offsetY').val() + '",' + '\n' +
+								'     position : "fixed"' + '\n' +
+								'});';
+
+					$('form').append('<textarea rows="" cols="" style="width:400px; height:100px;">\n' 
+									+ text + 
+									'</textarea>')
+				})
+			}
+		});
+
+	})
+</script>
+
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  /* EXAMPLE */
+  DD_belatedPNG.fix('#overlay, #main-site');
+  
+  /* string argument can be any CSS selector */
+  /* .png_bg example is unnecessary */
+  /* change it to what suits you! */
+</script>
+<![endif]-->
+</head>
+
+<body>
+	<div id="main-site">
+		<h1>Propeller Full Screen Plugin</h1>
+		<p>Were just doing some testing first but this will soon be our plugin for all full screen image based sites.</p>
+		<form id="plugin-options">
+			<p>
+				Auto Reposition Image? 
+				<select id="auto-reposition">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</select>
+			</p>
+			<p>
+				Overlay for anti-aliasing? 
+				<select id="anti-aliasing">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</select>
+			</p>
+			<p>
+				Need an offset? <br />
+				x:<input type="text" id="offsetX" value="0" /> y:<input type="text" id="offsetY" value="0" />
+			</p>
+			<p>
+				<input type="button" class="show-more" value="Show More Text?" />
+			</p>
+		</form>
+		<div id="more-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac orci augue, vitae volutpat odio. Aliquam sit amet nisi a neque sagittis congue quis at dolor. Vestibulum vitae mauris eu enim placerat porta. Sed venenatis leo a mi condimentum adipiscing. Donec id ornare neque. Fusce et pellentesque purus. Sed mauris massa, iaculis ac consectetur eget, condimentum id libero. Vestibulum et sapien felis, ac commodo odio. Cras id ultrices felis. Nam quam libero, lobortis ac pretium a, malesuada sed quam. Vestibulum egestas massa non enim eleifend tincidunt. Etiam ut dui at ante egestas tristique. Aliquam erat volutpat. Vivamus quis ligula varius dui lobortis vulputate ut at elit.
+			</p>
+			<p>
+				Sed sed iaculis mauris. Morbi a imperdiet ipsum. Nunc at lacinia tortor. In vel tristique massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam a tellus nisi, ac ultrices lectus. Nunc ante neque, suscipit sit amet faucibus at, pellentesque eget erat. Nam pellentesque nulla scelerisque nulla laoreet aliquet. Nulla odio felis, tempor sed tempus nec, tincidunt sed dolor. Pellentesque sollicitudin viverra odio id consectetur.
+			</p>
+			<p>
+				Duis non ligula velit, ac pretium risus. Maecenas luctus felis id magna fringilla eget bibendum metus mollis. In at magna ipsum. Nunc quis justo at purus tempor congue. Etiam consectetur arcu et ligula semper congue. Pellentesque eget nunc nisl, vitae auctor est. Sed ac nisl leo. Phasellus eu volutpat lorem. Integer interdum sem a nibh tempor dictum. Vestibulum consequat tempus condimentum. Phasellus rutrum velit eget dui fringilla convallis. Nunc ultrices vulputate tempus.
+			</p>
+			<p>
+				In nec risus et lacus tincidunt commodo nec sed neque. Suspendisse dignissim nulla nec augue tempor sit amet malesuada ligula fringilla. Pellentesque diam ante, aliquet eget venenatis in, varius eu enim. Quisque eu ipsum felis. Praesent sit amet elit vitae enim porta hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam eu metus eu nibh tempor aliquam. Nullam et odio nec augue tempor egestas. Phasellus in diam lectus. Nulla accumsan sollicitudin dolor, sed ornare arcu placerat vitae. Maecenas laoreet massa sed nisl consectetur tempor.
+			</p>
+			<p>
+				Sed venenatis, sem vitae bibendum porta, leo metus consectetur enim, in condimentum orci velit sed enim. Etiam gravida neque id dui euismod non vestibulum purus sagittis. Vivamus blandit posuere lorem, eu tincidunt felis tincidunt vitae. Morbi vel sapien est. Suspendisse non purus nisi, ut vulputate nisl. Ut quis suscipit augue. Duis ultrices ipsum vel erat aliquet vel consequat eros volutpat. Cras velit nunc, facilisis vel congue at, iaculis a erat. Mauris neque erat, bibendum id auctor sit amet, commodo non dui. Suspendisse tempor elementum diam quis porttitor. Duis sit amet tellus eu arcu placerat convallis sed nec metus. Donec ac risus eu sem hendrerit tincidunt. Pellentesque ultrices accumsan dolor in sollicitudin. Integer orci turpis, lobortis tincidunt mollis ac, scelerisque quis ipsum. Aliquam erat volutpat.
+			</p>
+		</div>
+	</div>
+	<div id="full-screen-image">
+		<img src="images/01.jpg" alt="Full Size Image" width="1440" height="956" />
+	</div>
+</body>
+</html>
