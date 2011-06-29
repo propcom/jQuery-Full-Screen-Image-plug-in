@@ -28,7 +28,7 @@ How to Install
 
 ### Step one
 
-Download the files for the full screen plug-in from [here][1]
+Download the files for the full screen plug-in from above. There are two choices, either take the already minified version, or if you wish to have a look and add your own functionality download the full source code.
 
 ### Step two
 
