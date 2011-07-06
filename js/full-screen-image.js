@@ -1,5 +1,3 @@
-// JavaScript Document
-// KWOKBOX VERSION 1.0 beta max
 (function($){
 	var ran =0, 
 	origHeight=0, 
