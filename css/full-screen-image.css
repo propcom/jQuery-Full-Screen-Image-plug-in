@@ -4,7 +4,7 @@
 	position:relative;
 	float:left;
 	display:inline;
-	width:500px;
+	width:550px;
 	margin:20px 0 0 20px;
 	padding:20px;
 	background-color: rgba(0,0,0,.7);
@@ -26,6 +26,14 @@
 		text-transform:uppercase;
 		margin-bottom:10px;
 	}
+	
+	h2 {
+		color: #fff;
+		font-family: 'Trebuchet MS', Helvetica, sans-serif;
+		font-size:13px;
+		text-transform:uppercase;
+		margin-bottom:10px;
+	}
 
 	p {
 		color: #fff;
@@ -34,6 +42,10 @@
 		line-height:20px;
 		margin-bottom:12px;
 	}
+
+#plugin-options {
+	margin-top: 50px;
+}
 
 #full-screen-image {
 	position:absolute;
